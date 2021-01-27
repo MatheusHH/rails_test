@@ -1,0 +1,15 @@
+<div>
+  <script>
+    $(document).ready(function(){
+      <% flash.each do |key, value| %>
+        <% if key == "notice" %>
+          $.notify("<%= value %>", {className: 'success', globalPosition: 'top center'});
+        <% elsif key == "alert" %>
+          $.notify("<%= value %>", {className: 'error', globalPosition: 'top center'});
+        <% elsif key == "info" %>
+          $.notify("<%= value %>", {className: 'info', globalPosition: 'top center'});
+        <% end %>
+      <% end %>
+    });
+  </script>
+</div>
