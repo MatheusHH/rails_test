@@ -2,7 +2,7 @@ class Interns::SchedulesController < DefaultInternsController
   before_action :set_schedule, only: [:edit, :update, :destroy]
 
   def index
-    @schedules = current_user.schedules
+    @schedules = Queries::SearchSchedulesService.call(current_user, params)
   end
 
   def new
