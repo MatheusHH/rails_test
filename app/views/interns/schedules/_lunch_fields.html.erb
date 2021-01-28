@@ -3,7 +3,7 @@
     <% if schedule.arrival_time.present? %>
       <div class="form-group">
         <%= form.label :lunch_beginning_time %>
-        <%= form.time_field :lunch_beginning_time, class: "form-control" %>
+        <%= form.time_field :lunch_beginning_time, class: "form-control", required: "required" %>
       </div>
     <% else %>
       <div class="form-group">
@@ -16,7 +16,7 @@
     <% if schedule.lunch_beginning_time.present? %>
       <div class="form-group">
         <%= form.label :lunch_finishing_time %>
-        <%= form.time_field :lunch_finishing_time, class: "form-control" %>
+        <%= form.time_field :lunch_finishing_time, class: "form-control", required: "required" %>
       </div>
     <% else %>
       <div class="form-group">

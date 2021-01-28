@@ -1,0 +1,19 @@
+<% if action_name == "edit" %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= form.label :weekday %>
+        <%= form.select :weekday, set_weekdays_list, {}, class: "form-control", disabled: "disabled" %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= form.label :weekday %>
+        <%= form.select :weekday, set_weekdays_list, {}, class: "form-control", required: "required" %>
+      </div>
+    </div>
+  </div>
+<% end %>

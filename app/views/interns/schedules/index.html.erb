@@ -4,7 +4,7 @@
     <%= render partial: "schedules", locals: { schedules: @schedules }%>
   </div>
   <div class="card-footer">
-    <%= link_to new_interns_schedule_path, class: "btn btn-primary btn-sm" do %>
+    <%= link_to new_interns_schedule_path, class: "btn btn-primary btn-sm #{set_link_behavior}" do %>
       <span>Novo ponto</span></a>
     <% end %>
   </div>

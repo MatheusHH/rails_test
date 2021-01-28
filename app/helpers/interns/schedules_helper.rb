@@ -7,4 +7,16 @@ module Interns::SchedulesHelper
     return "" if time.nil?
     time = time.strftime("às %H:%M")
   end
+
+  def set_link_behavior
+    return "" unless current_user.schedules.any?
+
+    schedule = current_user.schedules.last
+    if schedule.leaving_time.present?
+      link_behavior = ""
+    else
+      link_behavior = "disabled"
+    end
+    link_behavior
+  end
 end

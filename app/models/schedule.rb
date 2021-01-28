@@ -8,6 +8,8 @@ class Schedule < ApplicationRecord
   validate :validate_lunch_finishing_time, if: :lunch_times_present?
   validate :validate_leaving_time, if: :lunch_and_leaving_time_present?
 
+  validates :weekday, uniqueness: { if: :has_schedule? }, on: :create 
+  
   def self.weekday_attributes_for_select
     weekdays.map do |weekday, _|
       [I18n.t("activerecord.attributes.#{model_name.i18n_key}.weekdays.#{weekday}"), weekday]
@@ -15,6 +17,10 @@ class Schedule < ApplicationRecord
   end
 
   private
+
+  def has_schedule?
+    Schedule.where(weekday: weekday, user: user).where(created_at: current_time(arrival_time).beginning_of_week..current_time(arrival_time).end_of_week).any?
+  end
 
   def arrival_and_lunch_time_present?
     arrival_time.present? && lunch_beginning_time.present?

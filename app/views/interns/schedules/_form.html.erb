@@ -15,14 +15,8 @@
         </div>
       <% end %>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <%= form.label :weekday %>
-            <%= form.select :weekday, set_weekdays_list, {}, class: "form-control", required: "required" %>
-          </div>
-        </div>
-      </div>
+      <%= render partial: "select_field", locals: {form: form, schedule: schedule} %>
+      
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
