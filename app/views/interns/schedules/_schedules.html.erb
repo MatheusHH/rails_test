@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Dia da semana</th>
+        <th scope="col">Entrada</th>
+        <th scope="col">Saída</th>
+        <th scope="col">Entrada</th>
+        <th scope="col">Saída</th>
+        <th class="text-center" scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% schedules.each do |schedule| %>
+        <tr>
+          <td><%= t("activerecord.attributes.schedule.weekdays.#{schedule.weekday}") %></td>
+          <td><%= formatted_hour schedule.arrival_time %></td>
+          <td><%= formatted_hour schedule.lunch_beginning_time %></td>
+          <td><%= formatted_hour schedule.lunch_finishing_time %></td>
+          <td><%= formatted_hour schedule.leaving_time %></td>
+          <td class="text-center">
+            <%= link_to edit_interns_schedule_path(schedule), class: "btn btn-info btn-circle btn-sm" do %>
+              <i class="fa fa-edit"></i>
+            <% end %>
+            <%= link_to interns_schedule_path(schedule), method: :delete, class: "btn btn-danger btn-circle btn-sm", data: { confirm: t('confirm') } do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

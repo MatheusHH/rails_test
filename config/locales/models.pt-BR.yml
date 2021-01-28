@@ -1,0 +1,31 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      schedule:
+        one: Programação
+        other: Programações       
+      
+
+    attributes:
+      user:
+        name: Nome
+        email: Email
+      schedule:
+        weekday: Dia da semana
+        arrival_time: Hora de chegada
+        lunch_beginning_time: Saída da hora de almoço
+        lunch_finishing_time: Chegada da hora de almoço
+        leaving_time: Horário de saída 
+        weekdays:
+          sunday: Domingo
+          monday: Segunda-feira
+          tuesday: Terça-feira
+          wednesday: Quarta-feira
+          thursday: Quinta-feira
+          friday: Sexta-feira
+          saturday: Sábado
+
+      

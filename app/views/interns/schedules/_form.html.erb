@@ -1,0 +1,45 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-header">Cadastro do horário</div>
+  <div class="card-body">
+    <%= form_with(model: [:interns, schedule], local: true, html: {}) do |form| %>
+      <% if schedule.errors.any? %>
+        <div class="alert alert-alert" id="error_explanation">
+          <a href="#" data-dismiss="alert" class="close">×</a>
+          <h4><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h4>
+
+          <ul>
+          <% schedule.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul> 
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= form.label :weekday %>
+            <%= form.select :weekday, set_weekdays_list, {}, class: "form-control", required: "required" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= form.label :arrival_time %>
+            <%= form.time_field :arrival_time, class: "form-control", required: "required" %>
+          </div>
+        </div>
+      </div>
+
+      <%= render partial: "lunch_fields", locals: {form: form, schedule: schedule} %>
+
+      <%= render partial: "leaving_field", locals: {form: form, schedule: schedule} %>
+
+      <div class="actions">
+        <%= form.submit "Salvar", class: "btn btn-primary btn-sm" %>
+        <%= link_to "Voltar", interns_schedules_path, class: "btn btn-success btn-sm" %>
+      </div> 
+    <% end %>
+  </div>
+</div>

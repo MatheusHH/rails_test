@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weekday: 1
+  arrival_time: 2021-01-27 17:57:29
+  dinner_beginning_time: 2021-01-27 17:57:29
+  dinner_finishing_time: 2021-01-27 17:57:29
+  leaving_time: 2021-01-27 17:57:29
+  user: one
+
+two:
+  weekday: 1
+  arrival_time: 2021-01-27 17:57:29
+  dinner_beginning_time: 2021-01-27 17:57:29
+  dinner_finishing_time: 2021-01-27 17:57:29
+  leaving_time: 2021-01-27 17:57:29
+  user: two

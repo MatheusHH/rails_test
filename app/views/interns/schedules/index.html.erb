@@ -1,0 +1,11 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-header">Registros</div>
+  <div class="card-body">
+    <%= render partial: "schedules", locals: { schedules: @schedules }%>
+  </div>
+  <div class="card-footer">
+    <%= link_to new_interns_schedule_path, class: "btn btn-primary btn-sm" do %>
+      <span>Novo ponto</span></a>
+    <% end %>
+  </div>
+</div>
