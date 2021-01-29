@@ -10824,19 +10824,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("employee.png");
+  background: asset-url("employee.png");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("employee.png");
+  background: asset-url("employee.png");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("employee.png");
+  background: asset-url("employee.png");
   background-position: center;
   background-size: cover;
 }
