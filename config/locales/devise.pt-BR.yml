@@ -1,4 +1,5 @@
-pt-BR:
+pt-BR: 
+  new_password_text: Entendo, isso acontece. Apenas entre com seu endereço de email abaixo e enviaremos um link para reiniciar sua senha!
   activerecord:
     attributes:
       user:
