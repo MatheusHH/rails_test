@@ -5,7 +5,10 @@
       <% if schedule.errors.any? %>
         <div class="alert alert-alert" id="error_explanation">
           <a href="#" data-dismiss="alert" class="close">×</a>
-          <h4><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h4>
+          <%= I18n.t("errors.messages.not_saved",
+                 count: schedule.errors.count,
+                 resource: schedule.class.model_name.human.downcase)
+          %>
 
           <ul>
           <% schedule.errors.full_messages.each do |message| %>

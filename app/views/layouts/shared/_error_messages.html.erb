@@ -12,6 +12,12 @@
           $.notify("<%= value %>", {className: 'error', globalPosition: 'top center'});
         <% end %>
       <% end %>
+
+      <% if resource && resource.errors.any? %>
+        <% resource.errors.full_messages.each do |msg| %>
+            $.notify("<%= msg %>", {className: 'error', globalPosition: 'top center'});
+        <% end %>
+      <% end %>
     });
   </script>
 </div>

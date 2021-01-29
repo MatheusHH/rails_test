@@ -1,7 +1,7 @@
 <%= form_with url: interns_schedules_path, method: :get, html: {class: "form-inline"} do |form| %>
   <div class="input-group mb-3">
-    <%= form.date_field :initial_date, class: "form-control", max: Date.today %>
-    <%= form.date_field :final_date, class: "form-control" %>
+    <%= form.date_field :initial_date, class: "form-control", value: params[:initial_date], max: Date.today %>
+    <%= form.date_field :final_date, class: "form-control", value: params[:final_date] %>
     <div class="input-group-append">
       <%= button_tag type: 'submit', class: "btn btn-primary" do %>
         <i class="fas fa-search"></i>

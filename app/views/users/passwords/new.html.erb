@@ -1,3 +1,4 @@
+<%= render 'layouts/shared/error_messages', resource: resource %>
 <div class="container">
 
     <!-- Outer Row -->
@@ -17,7 +18,6 @@
                     <p class="mb-4"><%= t("new_password_text")%></p>
                   </div>
                   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "user" }) do |f| %>
-                    <%= devise_error_messages! %>
 
                     <div class="form-group">
                       <%= f.email_field :email, class: "form-control form-control-user", id: "exampleInputEmail", placeholder: "Enter Email Address...", autofocus: true, autocomplete: "email",  aria: { describedby:"emailHelp"} %>
