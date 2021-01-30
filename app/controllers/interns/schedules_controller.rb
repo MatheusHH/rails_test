@@ -50,7 +50,7 @@ class Interns::SchedulesController < DefaultInternsController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:weekday, :arrival_time, :lunch_beginning_time,
+    params.require(:schedule).permit(:schedule_date, :arrival_time, :lunch_beginning_time,
                                      :lunch_finishing_time, :leaving_time)
   end
 end

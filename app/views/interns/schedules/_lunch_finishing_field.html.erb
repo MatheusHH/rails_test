@@ -1,0 +1,8 @@
+<% if action_name == "edit" %> 
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= form.label :lunch_finishing_time %>
+      <%= form.time_field :lunch_finishing_time, class: "form-control", required: "required", min: (schedule.lunch_beginning_time + 1.minute) %>
+    </div>
+  </div>
+<% end %>  

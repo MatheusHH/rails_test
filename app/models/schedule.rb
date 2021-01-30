@@ -1,37 +1,25 @@
 class Schedule < ApplicationRecord
   belongs_to :user
 
-  enum weekday: [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]
-
-  validates :weekday, :arrival_time, presence: true
+  validates :schedule_date, :arrival_time, presence: true
   validate :validate_lunch_beginning_time, if: :arrival_and_lunch_time_present?
   validate :validate_lunch_finishing_time, if: :lunch_times_present?
   validate :validate_leaving_time, if: :lunch_and_leaving_time_present?
 
-  validates :weekday, uniqueness: { if: :has_schedule? }, on: :create 
-  
-  def self.weekday_attributes_for_select
-    weekdays.map do |weekday, _|
-      [I18n.t("activerecord.attributes.#{model_name.i18n_key}.weekdays.#{weekday}"), weekday]
-    end
-  end
+  validates :schedule_date, uniqueness: { scope: :user_id }, on: :create
 
   private
-
-  def has_schedule?
-    Schedule.where(weekday: weekday, user: user).where(created_at: current_time(arrival_time).beginning_of_week..current_time(arrival_time).end_of_week).any?
-  end
 
   def arrival_and_lunch_time_present?
     arrival_time.present? && lunch_beginning_time.present?
   end
 
   def lunch_times_present?
-    lunch_beginning_time.present? && lunch_finishing_time.present?
+    arrival_time.present? && lunch_beginning_time.present? && lunch_finishing_time.present?
   end
 
   def lunch_and_leaving_time_present?
-    lunch_finishing_time.present? && leaving_time.present?
+    arrival_time.present? && lunch_beginning_time.present? && lunch_finishing_time.present? && leaving_time.present?
   end
 
   def validate_lunch_beginning_time

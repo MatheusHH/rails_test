@@ -18,7 +18,7 @@
         </div>
       <% end %>
 
-      <%= render partial: "select_field", locals: {form: form, schedule: schedule} %>
+      <%= render partial: "schedule_date_field", locals: {form: form, schedule: schedule} %>
       
       <div class="row">
         <div class="col-sm-12">
@@ -29,9 +29,12 @@
         </div>
       </div>
 
-      <%= render partial: "lunch_fields", locals: {form: form, schedule: schedule} %>
+      <div class="row">
+        <%= set_lunch_beginning_field(schedule, form) %>
+        <%= set_lunch_finishing_field(schedule, form) %>
+      </div>
 
-      <%= render partial: "leaving_field", locals: {form: form, schedule: schedule} %>
+      <%= set_leaving_field(schedule, form) %>
 
       <div class="actions">
         <%= form.submit "Salvar", class: "btn btn-primary btn-sm" %>
