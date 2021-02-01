@@ -38,4 +38,16 @@ module Interns::SchedulesHelper
       render partial: "leaving_field", locals: {form: form, schedule: schedule}
     end
   end
+
+  def set_min_lunch_beginning_time(schedule)
+    time = schedule.arrival_time + 1.minute
+  end
+
+  def set_min_lunch_finishing_time(schedule)
+    time = schedule.lunch_beginning_time + 1.minute 
+  end
+
+  def set_leaving_time(schedule)
+    time = schedule.lunch_finishing_time + 1.minute
+  end
 end
